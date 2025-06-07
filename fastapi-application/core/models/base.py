@@ -2,11 +2,10 @@ from sqlalchemy import MetaData
 from sqlalchemy.orm import DeclarativeBase, declared_attr
 
 from core.config import settings
-from .mixins.id_int_pk import IdIntPkMixin
 from utils.case_converter import camel_case_to_snake_case
 
 
-class Base(IdIntPkMixin, DeclarativeBase):
+class Base(DeclarativeBase):
     __abstract__ = True
 
     metadata = MetaData(

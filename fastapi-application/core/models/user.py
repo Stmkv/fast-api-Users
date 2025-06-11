@@ -15,4 +15,9 @@ class User(Base, IdIntPkMixin, SQLAlchemyBaseUserTable[UserIdType]):  # type: ig
 
     @classmethod
     def get_db(cls, session: "AsyncSession"):
+        """
+        Класс-метод, создающий и возвращающий объект SQLAlchemyUserDatabase, который:
+            - Используется FastAPI Users для взаимодействия с базой данных;
+            - Принимает модель пользователя (User) как аргумент.
+        """
         return SQLAlchemyUserDatabase(session, User)

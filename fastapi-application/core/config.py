@@ -32,6 +32,10 @@ class DatabaseConfig(BaseModel):
     }
 
 
+class AccessToken(BaseModel):
+    lifetime_seconds: int = 3600
+
+
 class Setting(BaseSettings):
     model_config = SettingsConfigDict(
         env_file = ".env",
@@ -42,6 +46,7 @@ class Setting(BaseSettings):
     run: RunConfig = RunConfig()  # Установили значение по умолчанию, которые были проставлены
     api: ApiPrefix = ApiPrefix()
     db: DatabaseConfig
+    access_token: AccessToken = AccessToken()
 
 
 settings = Setting()

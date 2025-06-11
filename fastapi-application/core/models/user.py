@@ -12,7 +12,9 @@ if TYPE_CHECKING:
 
 
 class User(Base, IdIntPkMixin, SQLAlchemyBaseUserTable[UserIdType]):  # type: ignore[misc]
-
+    """
+    Добавляет поля к модели пользователя
+    """
     @classmethod
     def get_db(cls, session: "AsyncSession"):
         """

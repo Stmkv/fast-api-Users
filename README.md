@@ -19,3 +19,8 @@
 - `alembic revision --autogenerate -m "Описание изменений"` - Создание новой миграции
 - `alembic upgrade head` - применение миграций
 - `alembic downgrade base` - откат до пустой БД
+
+## Запуск через `gunicorn`
+```shell
+gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+```

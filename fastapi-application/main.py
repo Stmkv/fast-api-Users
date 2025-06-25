@@ -5,6 +5,7 @@ import uvicorn
 from fastapi import FastAPI
 
 from api import router as api_router
+from api.webhooks import webhooks_router
 from core.config import settings
 from core.models import Base, db_helper
 
@@ -31,6 +32,7 @@ async def lifespan(app: FastAPI):
 
 main_app = FastAPI(
     lifespan=lifespan,
+    webhooks=webhooks_router,
 )
 main_app.include_router(
     api_router,
